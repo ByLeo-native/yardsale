@@ -121,12 +121,6 @@ border-radius: 20px;
     height: 50px;
 }
 
-@media (max-width: 640px) {
-    .MyOrder {
-        width: 100%;
-    }
-}
-
 @keyframes swipeLeft {
     0% {
         width: 0;
@@ -134,5 +128,21 @@ border-radius: 20px;
 
     100% {
         width: 360px;
+    }
+}
+
+@media (max-width: 640px) {
+    .MyOrder {
+        width: 100%;
+    }
+
+    @keyframes swipeLeft {
+        0% {
+            width: 0;
+        }
+    
+        100% {
+            width: 100vw;
+        }
     }
 }

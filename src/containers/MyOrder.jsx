@@ -3,11 +3,13 @@ import '@styles/MyOrder.scss';
 import AppContext from '@context/AppContext';
 import OrderItem from '@components/OrderItem';
 import backIcon from '@icons/flechita.svg';
+import useMenuState from '../hooks/useMenuState';
 
 const MyOrder = () => {
-    const {state} = useContext(AppContext);
+    const { state, handleToggleOrders } = useContext(AppContext);
 
     const sumaTotal = () => {
+        console.log(state.cart[0]);
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
         const sum = state.cart.reduce(reducer, 0);
         return sum;
@@ -16,7 +18,7 @@ const MyOrder = () => {
     return (
         <aside className="MyOrder">
             <div className="title-container">
-                <img src={backIcon} alt="arrow"/>
+                <img onClick={handleToggleOrders} src={backIcon} alt="arrow"/>
                     <p className="title">My order</p>
             </div>
 

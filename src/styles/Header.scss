@@ -1,9 +1,14 @@
 @import './vars';
 
 nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
+    background-color: var(--white);
     border-bottom: 1px solid var(--very-light-pink);
 }
 
@@ -81,6 +86,7 @@ nav {
 @media (max-width: 640px) {
     .menu {
         display: block;
+        cursor: pointer;
     }
 
     .navbar-left ul {

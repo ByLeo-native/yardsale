@@ -13,12 +13,14 @@ import Checkout from '../pages/Checkout';
 import Orders from '../pages/Orders';
 import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState';
+import useMenuState from '../hooks/useMenuState';
 import '@styles/global.css';
 
 const App = () => {
 	const initialState = useInitialState();
+	const menuState = useMenuState();
 	return (
-		<AppContext.Provider value={initialState}>
+		<AppContext.Provider value={ {...initialState, ...menuState} }>
 			<BrowserRouter>
 				<Layout>
 					<Switch>

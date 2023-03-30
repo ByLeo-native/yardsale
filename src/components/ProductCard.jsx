@@ -1,19 +1,24 @@
 import React, {useContext} from 'react';
 import '@styles/ProductCard.scss';
 import AppContext from '../context/AppContext';
+import ProductDetailContext from '../context/ProductDetailContext';
 import addToCartImage from '@icons/bt_add_to_cart.svg';
 
 const ProductCard = ({product}) => {
 
-	const { addToCart } = useContext(AppContext);
+	const { addToCart, handleToggleProductDetail } = useContext(AppContext);
 
 	const handleCart = (item) => {
 		addToCart(item);
 	}
 
+	const { updateProduct } = useContext(ProductDetailContext);
+
     return (
         <div className="ProductCard">
-            <img src={product.images[0]} alt={product.title} />
+            <img className='pointer'
+			src={product.images[0]} alt={product.title} 
+			onClick={() => { updateProduct(product); handleToggleProductDetail() }}/>
 			<div className="product-info">
 				<div>
 					<p>$ {product.price}</p>
